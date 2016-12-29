@@ -1,1 +1,6 @@
 Este es mi primer push
+
+
+Esta es la edición desde el ordenador
+
+Este es el tercer commit
