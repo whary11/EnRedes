@@ -1,0 +1,28 @@
+	nav{
+	 	height: 100px;
+	 	z-index: 1000;
+	 	background: blue;
+	 	transition: all .5s;
+	 	position: fixed;
+	 }
+	 nav img{
+	 	width:90%;
+	 }
+	 #footer{
+	 	background: teal;
+	 	color: black;
+	 }
+	 #toast{
+	 	cursor: pointer;
+	 	color:red;
+	}
+	#espacio{
+		height: 100px;
+	}
+	#vision p{
+		text-align: justify;
+	}
+	.card{
+		overflow: hidden;
+		display: flex;
+	}

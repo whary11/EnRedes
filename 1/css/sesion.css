@@ -1,0 +1,80 @@
+*{
+	margin: 0;
+	padding: 0;
+	/*font-family:helvetica;*/
+	/*font-family: 'Source Sans Pro', sans-serif;*/
+	font-family: 'Droid Serif', serif;
+}
+/*Estolos del formulario*/
+#formulario{
+	padding-top:40px;
+	padding-bottom:40px;
+	width: 50%;
+	margin: 30px auto;
+	height: 400px;
+	border-radius: 5px;
+	text-align: center;
+	font-size:20px;
+	box-shadow: 1px 1px 30px #4B8484; 
+}
+/*Admin*/
+.inicio{
+	width:40%;
+	/*padding: 20px;*/
+	padding-bottom:10px;
+}
+#error{
+	font-size: 15px;
+	color:red;
+	-webkit-transition:font-size .2s;
+	-moz-transition:font-size .2s;
+}
+#formulario h1{
+	text-align: center;
+	/*padding: 10px;*/
+	color: teal;
+}
+
+#formulario form input{
+	display: block;
+	width: 70%;
+	margin: 20px auto;
+	padding:5px;
+	border:none;
+	border-bottom: 1px solid #4E6FFF;
+}
+
+#formulario form input[placeholder]{
+	font-size: 20px;
+}
+#formulario form button{
+	padding: 10px;
+	border:none;
+	font-size: 20px;
+	margin-top:20px;
+	border-radius: 10px;
+	background-color: #36A2E0;
+	color: white;
+}
+
+/*Efecto hover de los elementos del formulario*/
+#formulario form input:hover{
+
+}
+/*Efecto active de los elementos del formulario*/
+#formulario form input:active{
+
+}
+#formulario form button:active{
+
+	background-color: #10C0A5;
+}
+/*Efecto Focus de los elementos del formulario*/
+#formulario form input:focus{
+	box-shadow: 2px 2px 20px #4E6FFF;
+	-webkit-transition:box-shadow .5s;
+	border-style:none;
+}
+#formulario form input[placeholder]:focus{
+	color: teal;
+}

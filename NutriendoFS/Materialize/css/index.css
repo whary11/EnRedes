@@ -1,0 +1,48 @@
+	nav{
+	 	height: 100px;
+	 	z-index: 1000;
+	 	transition: all .5s;
+	 	position: fixed;
+	 }
+	 nav img{
+	 	width:90%;
+	 }
+	 nav h1{
+	 	font-size: 30px;
+	 	margin-top:15px;
+	 }
+	 #slider{
+	 	position:relative;
+	 }
+	 #footer{
+	 	background: teal;
+	 	color: black;
+	 }
+	 #toast{
+	 	cursor: pointer;
+	 	color:red;
+	}
+	#vision p{
+		text-align:justify;
+	}
+
+	#footer a{
+		color:white;
+	}
+	#dintancia{
+		height: 100px;
+	}
+	#mapa{
+		margin: 0px auto;
+		width: 80%;
+		border-radius: 10px;
+	}
+	#cargando{
+		height:3px;
+	}
+	.pink .menu{
+		font-size: 60px;
+	}
+
+
+

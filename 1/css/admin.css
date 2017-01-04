@@ -1,0 +1,150 @@
+*{
+	margin: 0;
+	padding: 0;
+	/*font-family:helvetica;*/
+	/*font-family: 'Source Sans Pro', sans-serif;*/
+	font-family: 'Droid Serif', serif;
+}
+h1{
+	font-size: 60px;
+	color: teal;
+}
+header{
+	background-color: teal;
+	margin-bottom:100px; 
+	height: 60px;
+	position: fixed;
+	width:100%;
+	box-shadow: 0px 0px 20px teal;
+}
+header #cerrar a{
+	margin-right: 10px;
+	color: white;
+	float: right;
+	margin:20px;
+	text-decoration: none;
+}
+#cerrar li{
+	list-style:none;
+}
+#navegacion{
+	margin-top:60px; ;
+	position:fixed;
+	background-color: teal;
+	width: auto;
+	padding: 10px;
+	height: 100%;
+	margin-left:-250px;
+	box-shadow: 1px 10px 60px teal;
+	/*-webkit-transition: margin-left 1s;*/
+
+}
+#navegacion ul{
+	width: auto;
+	/*margin-right: 60px;*/
+	font-size: 20px;
+	/*float: right;*/
+	transition: all 1s;
+
+}
+#navegacion ul li{
+	list-style: none;
+	color: white;
+	border-bottom: 1px solid gray;
+	margin-bottom: 20px;
+}
+#navegacion ul li:hover{
+	border-bottom: 1px solid #151515;
+}
+#navegacion a{
+	text-decoration: none;
+
+}
+.icon-menu{
+	position: fixed;
+	margin: 10px;
+	margin-left: 40px;
+	font-size: 40px;
+	color: white;
+	border-radius: 10px;
+	cursor: pointer;
+}
+#logo{
+	width: 140px;
+	height: 140px;
+	border-radius: 100%;
+	margin: 0px auto;
+	padding: 20px;
+	cursor:pointer;
+	/*margin-bottom: 40px;*/
+}
+
+.muestra{
+	margin-left: 250px;
+}
+#contenedor{
+	transition: all 1s;
+}
+
+.prueba{
+	margin-left: 200px;
+	transition: all 1s;
+}
+
+.amenu{
+	text-align: center;
+	color: #CECEF6;
+	padding-bottom: 20px;
+}
+
+
+/*Area de edición*/
+
+#pparrafo{
+	background-color:;
+	width: 70%;
+	margin: 20px auto;
+	display: block;
+	height: 150px;
+	margin-bottom: 40px;
+	border:1px solid gray;
+	border-radius: 5px;
+	/*z-index: 1000;*/
+}
+
+#pform{
+	border:1px solid white;
+	text-align: center;
+	width: 70%;
+	margin: 0px auto;
+	height:auto;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 1px 1px 15px teal;
+
+}
+
+#pform #actualiza{
+	width: 70px;
+	margin: 20px auto;
+	padding: 5px;
+	margin-bottom: 20px;
+	border:none;
+	background-color: #36A2E0;
+	border-radius: 5px;
+	display: block;
+}
+#pform #titulo{
+	display: block;
+	width: 20%;
+	margin: 0px auto;
+	border: 1px solid teal;
+	border-radius:5px;
+	height: 30px;
+
+}
+#pform #file{
+	margin: 0px auto;
+	border-radius:5px;
+}
+
