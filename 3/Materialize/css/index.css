@@ -26,3 +26,12 @@
 		overflow: hidden;
 		display: flex;
 	}
+	#logo{
+		width: 90px;
+		height: 90px;
+		transition: all .5s;
+	}
+	.menu .font-20, .menu2 .font-20{
+		transition: all .5s;
+		font-size: 50px;
+	}

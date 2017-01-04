@@ -11,10 +11,11 @@ if (isset($_POST["ingreso"])) {
   }
   // print($id_user);
   if($db::buscaUsuario("registro",$usuario,$clave)){
-      $_SESSION["usuario"]=$id_user;
-      header("location: ejemplos.html");
+      header("location: admin.php");
+      $_SESSION["id"]=$id_user;
+
   }else{
-    print("$usuario  $clave no existen");
+    header("location: index.php");
   }
 }
 unset($db);
@@ -26,28 +27,21 @@ unset($db);
 	<title>EnRedes</title>
 	<meta charset="UTF-8">
 	<title>Materialize</title>
-	  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/max.js"></script>
-
-	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-<!-- <script type="text/javascript">
-     $(document).ready(function() {
-       $(".limit").limitChar(1000, true);
-     });
-   </script> -->
+  <script type="text/javascript" src="js/max.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
 <!-- <div class="navbar-fixed"> -->
 	<nav class="">
     	<div class="nav-wrapper">
-      	<a href="#!" class="brand-logo right"><img src="img/logo.jpg"></a>
-      	<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      	<a href="#!" class="brand-logo right"><img src="img/logo.jpg" id="logo"></a>
+      	<a href="#" data-activates="mobile-demo" class="button-collapse menu"><i class="material-icons font-20"></i></a>
       	<ul class="left hide-on-med-and-down">
 	        <li><a href="#">Enlaces</a></li>
 	        <li><a href="#">Blog <i class="material-icons right">credit_card</i></a></li>
@@ -65,15 +59,12 @@ unset($db);
       </div>
       </div>
     </nav>
-<!-- </div> -->
 
-
+<!-- Espacio para bajar el Slider y permitir que se pueda ver -->
 <div id="espacio"></div>
-<!-- Slider -->
-
+<!-- Sliders -->
 <div class="slider">
 <div class="content">
-
     <ul class="slides">
       <li>
         <img src="img/apple-606761_1920.jpg"> <!-- random image -->
@@ -103,7 +94,6 @@ unset($db);
           <h5 class="light grey-text text-lighten-3">Descripción 4</h5>
         </div>
       </li>
-      
       <li>
         <img src="img/presentation-1794128_1280.png"> <!-- random image -->
         <div class="caption center-align">
@@ -172,12 +162,10 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <!-- 2 -->
   </div>
   </div>
-
-
 		<!-- Administrador -->
+    <!-- Validar formulario con Jquery -->
 
 <div id="admin" class="modal">
-
     <div class="modal-content">
 		<form action="" class="" method="post">
 			<h4 class="center-align">Iniciar Sesión</h4>
@@ -186,8 +174,8 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		 				<label for="usuario">Usuario</label>
 		 			</div>
 		 			<div class="input-field col s6">
-		 				<input type="password" name="clave" id="apellido" class="validate">
-		 				<label for="clave">Contraseña</label>
+		 				<input type="password" name="clave" id="clave" class="validate">
+		 				<label for="clave" id="clv">Contraseña</label>
 		 			</div>
 		 			<div class="row ">
 		 				<!-- <input type="submit" name="enviar" value="Iniciar Sesión"> -->
@@ -200,8 +188,6 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </div>
 
 <!-- Validación de formulario-->
-
-
 <!-- <div id="arriba">
   <a href="#nav" class="btn-floating btn-large waves-effect waves-light red">Ir arriba</a>
 </div> -->
@@ -232,7 +218,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 			<div class="row">
 				<div class="col l12 s12">
 	                <h5 class="white-text">Contenido del Footer</h5>
-	                <p class="grey-text text-lighten-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	                <p class="grey-text text-lighten-4" id="parr">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 	                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
