@@ -1,10 +1,11 @@
 <?php 
-session_start();
-if(isset($_SESSION["id"])) {
+	session_start();
+	if(isset($_SESSION["id"])) {
 		$id = $_SESSION["id"];
 	}else{
 		header("location: index.php");
-		} ?>
+	} 
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,7 +13,10 @@ if(isset($_SESSION["id"])) {
 	<title>Área del administrador</title>
 </head>
 <body>
-	<h1>Bienvenido usuario con id <?php print($id);?>
- </h1>
+	<h1>Bienvenido usuario con id <?php print($id);?></h1>
+
+	<p>
+		<a href="valida_enredes_er.php">Cerrar Sesión</a>
+	</p>
 </body>
 </html>

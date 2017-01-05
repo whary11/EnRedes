@@ -1,24 +1,6 @@
 <?php 
   require_once("clases/conn.php");
- // Validar formulario e inicio de sesión
-if (isset($_POST["ingreso"])) {
-  $usuario = $_POST["usuario"];
-  $clave = $_POST["clave"];
-  $db = new connDb();
-  $data = $db->leeTabla("SELECT id_user FROM registro WHERE contrasena1='$clave' AND correo='$usuario'");
-  for ($i=0; $i <count($data) ; $i++) { 
-    $id_user = $data[$i]->id_user;
-  }
-  // print($id_user);
-  if($db::buscaUsuario("registro",$usuario,$clave)){
-      header("location: admin.php");
-      $_SESSION["id"]=$id_user;
-
-  }else{
-    header("location: index.php");
-  }
-}
-unset($db);
+  print($_SESSION['id']);
  ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -28,7 +10,7 @@ unset($db);
 	<meta charset="UTF-8">
 	<title>Materialize</title>
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="css/materialize.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
@@ -36,7 +18,6 @@ unset($db);
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-
 <!-- <div class="navbar-fixed"> -->
 	<nav class="">
     	<div class="nav-wrapper">
@@ -105,21 +86,25 @@ unset($db);
   </div>
   </div>
 <!-- Visión -->
+<div id="ir">
+  <i class="material-icons icon">expand_less</i>
+</div>
 <div class="container" id="vision">
 <!-- <div class="row"> -->
 <div class="col l12 s12">
 <h2 class="center-align">Visión EnRedes</h2>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
 </div>
 </div>
 </div>
@@ -155,8 +140,8 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
           </div>'
     );
-    unset($db);
   }
+  $db->close();
  ?>
   <!-- <a href="index.php?men=memem">enviar</a> -->
 <!-- 2 -->
@@ -165,32 +150,24 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		<!-- Administrador -->
     <!-- Validar formulario con Jquery -->
 
-<div id="admin" class="modal">
-    <div class="modal-content">
-		<form action="" class="" method="post">
-			<h4 class="center-align">Iniciar Sesión</h4>
-		 			<div class="input-field col s6">
-		 				<input type="text" name="usuario" id="usuario" class="validate">
-		 				<label for="usuario">Usuario</label>
-		 			</div>
-		 			<div class="input-field col s6">
-		 				<input type="password" name="clave" id="clave" class="validate">
-		 				<label for="clave" id="clv">Contraseña</label>
-		 			</div>
-		 			<div class="row ">
-		 				<!-- <input type="submit" name="enviar" value="Iniciar Sesión"> -->
-		 				<button class="btn" name="ingreso">Iniciar Sesión</button>
-		 			</div>
-
-		 </form>
-		
- </div>
+<div id="admin" class="modal modal_admin">
+  <div class="modal-content">
+    <form method="post" action="valida_enredes_er.php">
+    	<!-- <h4 class="center-align">Iniciar Sesión</h4> -->
+      <div class="input-field col s6">
+      	<input type="text" name="usuario" id="usuario" class="validate">
+      	<label for="usuario">Usuario</label>
+      </div>
+      <div class="input-field col s6">
+      	<input type="password" name="clave" id="clave" class="validate">
+      	<label for="clave" id="clv">Contraseña</label>
+      </div>
+      	<input type="submit" class="btn" name="iniciar_sesion" value="Ingresar"/>
+    </form>
+  </div>
 </div>
 
 <!-- Validación de formulario-->
-<!-- <div id="arriba">
-  <a href="#nav" class="btn-floating btn-large waves-effect waves-light red">Ir arriba</a>
-</div> -->
 
 	<!-- Ventana modal con formulario integrado -->
   
@@ -200,7 +177,8 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		<h2 class="center-align flow-textblack">Buscar</h2>
 		 	<form action="index.php" class="col 6" method="post">
 		 		<!-- <div class="input-field row"> -->
-		 			<input type="text" name="nombre" id="nombre" class="validate"><button class="btn col s2">Buscar</button>
+		 			<input type="text" name="nombre" id="nombre" class="validate">
+          <button class="btn col s2">Buscar</button>
 		 		<!-- </div> -->
 	 		</form>
 	</div>

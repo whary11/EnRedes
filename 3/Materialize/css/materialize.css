@@ -5353,17 +5353,18 @@ button.btn-floating {
   right: 0;
   background-color: #fafafa;
   padding: 0;
-  max-height: 70%;
+  max-height:100%;
   width: 55%;
   margin: auto;
   overflow-y: auto;
   border-radius: 2px;
   will-change: top, opacity;
+
 }
 
 @media only screen and (max-width: 992px) {
   .modal {
-    width: 80%;
+    width: 90%;
   }
 }
 

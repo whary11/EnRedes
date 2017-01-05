@@ -1,12 +1,9 @@
 	nav{
 	 	height: 100px;
 	 	z-index: 1000;
-	 	background: blue;
+	 	background: red;
 	 	transition: all .5s;
 	 	position: fixed;
-	 }
-	 nav img{
-	 	width:90%;
 	 }
 	 #footer{
 	 	background: teal;
@@ -17,7 +14,7 @@
 	 	color:red;
 	}
 	#espacio{
-		height: 100px;
+		height:100px;
 	}
 	#vision p{
 		text-align: justify;
@@ -29,9 +26,40 @@
 	#logo{
 		width: 90px;
 		height: 90px;
+		margin-top: 4.5px;
 		transition: all .5s;
 	}
 	.menu .font-20, .menu2 .font-20{
 		transition: all .5s;
 		font-size: 50px;
+		margin-top: 18px;
+		/*color: red;*/
 	}
+	#ir{
+		width: 10%;
+		height: auto;
+		background: black;
+		position: fixed;
+		z-index: 1000;
+		background: transparent;
+		margin-left: 90%;
+		margin-top: -55px;
+	}
+	 #ir .icon{
+		color:black;
+		float: right;
+		padding-right:3px;
+		font-size: 70px;
+		cursor:pointer;
+	}
+
+	.modal_admin{
+		width: 40%;
+		margin-top:100px;
+	}
+
+	@media only screen and (max-width: 992px) {
+  .modal {
+    width: 90%;
+  }
+}
