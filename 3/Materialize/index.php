@@ -1,6 +1,6 @@
 <?php 
   require_once("clases/conn.php");
-  print($_SESSION['id']);
+  // print($_SESSION['id']);
  ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -148,11 +148,9 @@
   </div>
   </div>
 		<!-- Administrador -->
-    <!-- Validar formulario con Jquery -->
-
 <div id="admin" class="modal modal_admin">
   <div class="modal-content">
-    <form method="post" action="valida_enredes_er.php">
+    <form  id="form_admin" action="valida_enredes_er.php" method="POST">
     	<!-- <h4 class="center-align">Iniciar Sesión</h4> -->
       <div class="input-field col s6">
       	<input type="text" name="usuario" id="usuario" class="validate">
@@ -162,16 +160,13 @@
       	<input type="password" name="clave" id="clave" class="validate">
       	<label for="clave" id="clv">Contraseña</label>
       </div>
-      	<input type="submit" class="btn" name="iniciar_sesion" value="Ingresar"/>
+      	<input type="submit" class="btn" name="iniciar_sesion" value="Ingresar"/><p id="error_form_admin"></p>
     </form>
   </div>
 </div>
-
 <!-- Validación de formulario-->
-
-	<!-- Ventana modal con formulario integrado -->
-  
-  <!-- Modal Structure -->
+<!-- Ventana modal con formulario integrado -->  
+<!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
 		<h2 class="center-align flow-textblack">Buscar</h2>

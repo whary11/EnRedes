@@ -68,3 +68,64 @@ $(document).ready(function() {
 	});
 
 });
+
+
+
+
+////////////Formulario de admin///////////
+
+$(document).ready(function(){
+
+
+
+
+
+	$('#form_admin').submit(function(e){
+		// e.preventDefault();
+
+//////////Aquí empieza la validación////////
+		
+//////////////Variables donde se almacena la Información que se envía
+		var usuario = $('#usuario');
+		var clave = $('#clave');
+		var red = "red";
+		var teal = "teal";
+		if(usuario.val()==""){
+			usuario.css('borderColor', red);
+			e.preventDefault();
+			$('#error_form_admin').text("");
+		}else if(clave.val()==""){
+			usuario.css('borderColor','teal');	
+			clave.css('borderColor', red);
+			$('#error_form_admin').text("");
+			e.preventDefault();
+		}else if(clave.val()==usuario.val()){
+			// clave.css('borderColor', red);
+			clave.css('borderColor', teal);
+			$('#error_form_admin').text("");
+			e.preventDefault();
+			// usuario.css('borderColor', red);
+			$('#error_form_admin').text('Los campos no pueden ser iguales.');
+			$('#error_form_admin').css('color', red);
+		}else{
+			$('#error_form_admin').text('');
+			clave.css('borderColor', teal);
+			var info = $('#form_admin').serialize()
+				$.post('valida_enredes_er.php',info, function(resp,estado,Html){
+				// console.log(Html);
+				$('#error_form_admin').text(resp);
+	// Afinar aquí mi código, no se ha podido hacer la igualdad...
+				if (resp == "correcto") {
+					console.log("Obtenido con exito");
+					console.log(estado);
+					console.log(Html);
+					console.log(resp);
+				}
+			})
+		}
+e.preventDefault();
+  })
+});
+
+
+

@@ -1,9 +1,9 @@
 <?php 
 	session_start();
-	if(isset($_SESSION["id"])) {
-		$id = $_SESSION["id"];
+	if(isset($_SESSION["usuario"])) {
+		$id = $_SESSION["usuario"];
 	}else{
-		header("location: index.php");
+		// header("location: index.php");
 	} 
 ?>
 <!DOCTYPE html>
@@ -14,7 +14,6 @@
 </head>
 <body>
 	<h1>Bienvenido usuario con id <?php print($id);?></h1>
-
 	<p>
 		<a href="valida_enredes_er.php">Cerrar Sesión</a>
 	</p>
