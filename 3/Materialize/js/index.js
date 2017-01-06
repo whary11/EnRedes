@@ -113,6 +113,7 @@ $(document).ready(function(){
 			var info = $('#form_admin').serialize()
 				$.post('valida_enredes_er.php',info, function(resp,estado,Html){
 				// console.log(Html);
+				console.log(resp)
 				$('#error_form_admin').text(resp);
 	// Afinar aquí mi código, no se ha podido hacer la igualdad...
 				if (resp == "correcto") {
@@ -121,11 +122,34 @@ $(document).ready(function(){
 					console.log(Html);
 					console.log(resp);
 				}
-			})
+
+			});
 		}
 e.preventDefault();
   })
+////////Esta forma estaba funcionando 
+		var usuario = "ziczac58@gmail.com";
+		var clave = 1234;
+		$.ajax({
+		url: 'valida_enredes_er.php',
+		type: 'post',
+		dataType:'text',
+		async:true,
+		data: {usuario: usuario, clave:clave},
+	}).done(function(resp){
+		if(resp === "correcto"){
+			console.log("Vaya que lo has logrado");
+		}else{
+			console.log("Lo sentimos algo pasa con tu código, revisas las lineas 133 a 148.");
+		}
+	}).fail(function(res) {
+		console.log("error");
+	}).always(function() {
+		// console.log("completado");
+	});
+	
 });
+
 
 
 
