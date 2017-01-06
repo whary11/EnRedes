@@ -75,11 +75,8 @@ $(document).ready(function() {
 ////////////Formulario de admin///////////
 
 $(document).ready(function(){
-
-
-
-
-
+	var pet = $('#form_admin').attr("action");
+	var met = $('#form_admin').attr("method");
 	$('#form_admin').submit(function(e){
 		// e.preventDefault();
 
@@ -111,7 +108,7 @@ $(document).ready(function(){
 			$('#error_form_admin').text('');
 			clave.css('borderColor', teal);
 			var info = $('#form_admin').serialize()
-				$.post('valida_enredes_er.php',info, function(resp,estado,Html){
+				$.post(pet,info, function(resp,estado,Html){
 				// console.log(Html);
 				console.log(resp)
 				$('#error_form_admin').text(resp);
@@ -131,8 +128,8 @@ e.preventDefault();
 		var usuario = "ziczac58@gmail.com";
 		var clave = 1234;
 		$.ajax({
-		url: 'valida_enredes_er.php',
-		type: 'post',
+		url:pet,
+		type: met,
 		dataType:'text',
 		async:true,
 		data: {usuario: usuario, clave:clave},
@@ -140,7 +137,7 @@ e.preventDefault();
 		if(resp === "correcto"){
 			console.log("Vaya que lo has logrado");
 		}else{
-			console.log("Lo sentimos algo pasa con tu código, revisas las lineas 133 a 148.");
+			console.log(resp+" Lo sentimos algo pasa con tu código, revisas las lineas 133 a 148.");
 		}
 	}).fail(function(res) {
 		console.log("error");
