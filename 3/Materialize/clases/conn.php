@@ -42,6 +42,11 @@ class connDb{
 				}
 				return $data;
 			}
+	public function abc($q){
+				if($q!=""){
+					mysqli_query($this->conn, $q);
+				}
+	}
 // función para buscar cualquier usuario siguiendo los parámetros exigidos
 	public static function buscaUsuario($tabla,$usuario, $clave){
 				$db = new connDb();

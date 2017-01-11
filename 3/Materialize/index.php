@@ -1,6 +1,12 @@
 <?php 
   require_once("clases/conn.php");
-  // print($_SESSION['id']);
+  session_start();
+  $page;
+  if (isset($_SESSION["usuario"])) {
+    $page = "admin.php";
+  }else{
+    $page = "#admin";
+  }
  ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -8,7 +14,7 @@
 	<meta charset="UTF-8">
 	<title>EnRedes</title>
 	<meta charset="UTF-8">
-	<title>Materialize</title>
+	<title>EnRedes</title>
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/materialize.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
@@ -27,7 +33,7 @@
 	        <li><a href="#">Enlaces</a></li>
 	        <li><a href="#">Blog <i class="material-icons right">credit_card</i></a></li>
 	        <li><a href="#">Contactenos<i class="material-icons right">person_pin</i></a></li>
-	        <li><a href="#admin">Adminstrador <i class="material-icons right">mode_edit</i></a></li>
+	        <li><a href="<?php print($page) ?>">Adminstrador <i class="material-icons right">mode_edit</i></a></li>
       	</ul>
       <div>
       <ul class="side-nav" id="mobile-demo">
@@ -35,7 +41,7 @@
         <li><a href="#">Enlaces</a></li>
         <li><a href="#">Blog <i class="material-icons right">credit_card</i></a></li>
         <li><a href="#">Contactenos<i class="material-icons right">Blog credit_card</i></a></li>
-        <li><a href="#admin">Adminstrador <i class="material-icons right">mode_edit</i></a></li>
+        <li><a href="<?php print($page) ?>">Adminstrador <i class="material-icons right">mode_edit</i></a></li>
       </ul>
       </div>
       </div>
@@ -153,16 +159,18 @@
     <form  id="form_admin" action="valida_enredes_er.php" method="POST">
     	<!-- <h4 class="center-align">Iniciar Sesión</h4> -->
       <div class="input-field col s6">
-      	<input type="text" name="usuario" id="usuario" class="validate">
+      	<input type="text" name="usuario" id="usuario" class="validate" autofocus>
       	<label for="usuario">Usuario</label>
       </div>
       <div class="input-field col s6">
       	<input type="password" name="clave" id="clave" class="validate">
       	<label for="clave" id="clv">Contraseña</label>
       </div>
-      	<input type="submit" class="btn" name="iniciar_sesion" value="Ingresar"/><p id="error_form_admin"></p>
+      	<input type="submit" class="btn" name="iniciar_sesion" value="Ingresar"/>
+
     </form>
   </div>
+  <p id="error_form_admin" align="center"></p>
 </div>
 <!-- Validación de formulario-->
 <!-- Ventana modal con formulario integrado -->  

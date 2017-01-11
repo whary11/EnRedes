@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	var alturaNav = $('nav').height();
-	// alert(prueba)
 	$(document).scroll(function(){
 		var prueba = $(document).scrollTop();
 		if (prueba>=40) {
@@ -20,7 +19,6 @@ $(document).ready(function() {
 				'marginTop':'20px'
 			});
 			$("#ir .icon").css({
-				// 'color':'blac'
 			});
 		}else{
 			$('nav').css({
@@ -78,7 +76,7 @@ $(document).ready(function(){
 	var pet = $('#form_admin').attr("action");
 	var met = $('#form_admin').attr("method");
 	$('#form_admin').submit(function(e){
-		// e.preventDefault();
+		e.preventDefault();
 
 //////////Aquí empieza la validación////////
 		
@@ -97,56 +95,27 @@ $(document).ready(function(){
 			$('#error_form_admin').text("");
 			e.preventDefault();
 		}else if(clave.val()==usuario.val()){
-			// clave.css('borderColor', red);
 			clave.css('borderColor', teal);
 			$('#error_form_admin').text("");
 			e.preventDefault();
-			// usuario.css('borderColor', red);
 			$('#error_form_admin').text('Los campos no pueden ser iguales.');
 			$('#error_form_admin').css('color', red);
 		}else{
 			$('#error_form_admin').text('');
 			clave.css('borderColor', teal);
-			var info = $('#form_admin').serialize()
-				$.post(pet,info, function(resp,estado,Html){
-				// console.log(Html);
-				console.log(resp)
-				$('#error_form_admin').text(resp);
-	// Afinar aquí mi código, no se ha podido hacer la igualdad...
-				if (resp == "correcto") {
-					console.log("Obtenido con exito");
-					console.log(estado);
-					console.log(Html);
-					console.log(resp);
-				}
+			var info = $('#form_admin').serialize();
 
+				$.post(pet,info, function(resp,estado,Html){			
+	// Afinar aquí mi código, no se ha podido hacer la igualdad...
+				if (resp == 1234567890) {
+					$('#error_form_admin').css('color', teal);
+					location.href = "admin.php";
+				}else{
+					$('#error_form_admin').text("Usuario no registrado.");
+					$('#error_form_admin').css('color', red);
+				}
 			});
 		}
-e.preventDefault();
+
   })
-////////Esta forma estaba funcionando 
-		var usuario = "ziczac58@gmail.com";
-		var clave = 1234;
-		$.ajax({
-		url:pet,
-		type: met,
-		dataType:'text',
-		async:true,
-		data: {usuario: usuario, clave:clave},
-	}).done(function(resp){
-		if(resp === "correcto"){
-			console.log("Vaya que lo has logrado");
-		}else{
-			console.log(resp+" Lo sentimos algo pasa con tu código, revisas las lineas 133 a 148.");
-		}
-	}).fail(function(res) {
-		console.log("error");
-	}).always(function() {
-		// console.log("completado");
-	});
-	
 });
-
-
-
-
