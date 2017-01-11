@@ -4,6 +4,8 @@
 		$valor = $_POST["buscador"];
 		$db = new connDb();
 		$data = $db->leeTabla("SELECT * FROM registro WHERE nombre LIKE '%$valor%' or apellido LIKE '%$valor%' or telefono LIKE '%$valor%' or correo LIKE '%$valor%' ");
+
+		
 		if (count($data)>=1) {
 			print('<div class="container">
 						<div class="row">
@@ -44,7 +46,7 @@
 				print('<h2 align="center">No hemos encontrado Resultados.</h2>');
 			}
 		}else{
-		header("location: buscador.php");
+			header("location: buscador.php");
 		}
  ?>
 

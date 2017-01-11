@@ -7,7 +7,7 @@ $(document).ready(function() {
 		$.post('buscar.php', datos, function(data, textStatus, xhr) {
 			$('#resultado').html(data);
 		});
-})
+	})
 	$('#form_add').submit(function(event){
 		event.preventDefault();
 		var nombre = $('#nombre');

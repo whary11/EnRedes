@@ -1,0 +1,33 @@
+h1{
+	text-align: center;
+	color: teal;
+}
+#contenedor{
+	/*background-color: red;*/
+	width: 100%;
+}
+
+#contenedor #buscar{
+	display: block;
+	width: 70%;
+	margin: 0px auto;
+	border: none;
+	border:1px solid gray;
+	border-radius: 4px;
+	height: 40px;
+	font-family: 'Roboto', sans-serif;
+}
+
+#contenedor #buscar[placeholder]{
+	text-align: justify;
+	font-size: 20px;
+}
+#datos{
+	width:70%;
+	margin:0px auto;
+	display: flex;
+	height: 10px;
+}
+#datos p{
+	margin-top: 5px;
+}
