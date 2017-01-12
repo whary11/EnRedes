@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Facebook</title>
+	<script src="../4/js/jquery.js"></script>
+	<style type="text/css">
+	input{
+		display: block;
+		width: 50%;
+		margin:5px auto;
+		border: none;
+		box-shadow: 0px 0px 10px #BDBDBD;
+		padding: 10px;
+	}
+
+	form{
+		width: 50%;
+		/*background:red;*/
+		margin: 50px auto 0px auto;
+		padding: 20px;
+		box-shadow: 0px 0px 10px #BDBDBD;
+		border-radius: 5px;
+	}
+	input[value="Enviar"]{
+		background: teal;
+		border: none;
+		cursor: pointer;
+		border-radius: 5px;
+		width: 80px;
+		padding: 7px;
+	}
+	input[value="Facebook"]{
+		background: blue;
+		border: none;
+		cursor: pointer;
+		border-radius: 5px;
+		width: 80px;
+		padding: 7px;
+	}
+</style>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1599969950310836',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) return;
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/es_LA/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+</head>
+<body>
+
+<form id="face">
+	<input type="text" name="usuario" placeholder="Usuario">
+	<input type="password" name="clave" placeholder="Contraseña">
+	<input type="submit" name="enviar" value="Enviar">
+	<input type="submit" name="facebook" value="Facebook" id="btn-face">
+</form>
+
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$('#face').submit(function(e) {	
+			e.preventDefault();		
+		});
+			$('#btn-face').click(function(){
+				  FB.getLoginStatus(function() {
+				   FB.login(function(response) {
+
+				   	// console.log(response.status)
+					  if (response.status === 'connected') {
+					    // Logged into your app and Facebook.
+					    //la persona inició sesión en Facebook y en tu aplicación.
+					    console.log(response.status)
+					    $('#saludo').text('Hola '+response.name+' has iniciado sesión');
+					  } else if(response.status === 'not_authorized') {
+					    // The person is logged into Facebook, but not your app.
+					    //la persona inició sesión en Facebook, pero no en tu aplicación.
+					  } else {
+					    // The person is not logged into Facebook, so we're not sure if
+					    // la persona no inició sesión en Facebook, de modo que no sabes si la inició en tu aplicación. O bien, se llamó a FB.logout() con anterioridad y no se pudo conectar con Facebook.
+
+
+					  }
+					}, {scope: 'public_profile, email'});
+				  });
+			});
+	});
+</script>	
+
+
+<div id="Saludo">
+	
+
+
+</div>
+</body>
+</html>

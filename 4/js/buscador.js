@@ -9,7 +9,7 @@ $(document).ready(function() {
 		if(buscar.val().length>0){
 			datos.css({
 			'display': 'block'
-		});
+			});
 			$.post('bus.php', {valor: valor}, function(data, textStatus, xhr) {				
 				if(data==111){
 					$('#datos').html("<p align='center' class='z-depth-3 no-datos'>No se han encontrado datos.</p>");
@@ -25,3 +25,4 @@ $(document).ready(function() {
 		}
 	});
 });
+
