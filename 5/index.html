@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Facebook</title>
 	<script src="../4/js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="../4/css/materialize.css">
 	<style type="text/css">
 	input{
 		display: block;
@@ -67,14 +68,21 @@
 	<input type="text" name="usuario" placeholder="Usuario">
 	<input type="password" name="clave" placeholder="Contraseña">
 	<input type="submit" name="enviar" value="Enviar">
-	<input type="submit" name="facebook" value="Facebook" id="btn-face">
+	<input type="submit" name="facebook" value="Facebook" id="btn-face" onclick="onButtonClick()">
+	<center>
+	<a href="#" class="btn" id="cerrar">Cerrar Sesión</a>
+	</center>
 </form>
 
+<!-- Esta es una de la treferencia super util a la hora de obtener losdatos de Facebook por medio de su api -->
 
-
+<!-- facebook.developers.com -->
+<!-- https://developers.facebook.com/tools/explorer/145634995501895/?method=GET&path=me%3Ffields%3Did%2Ccover%2Cemail%2Ccontext%2Cage_range&version=v2.8 -->
 <script type="text/javascript">
-	$(document).ready(function() {
 
+/////////////Inicio de sesión con  la API de Facebook
+	$(document).ready(function() {
+		$('#cerrar').hide();
 		$('#face').submit(function(e) {	
 			e.preventDefault();		
 		});
@@ -87,24 +95,61 @@
 					    // Logged into your app and Facebook.
 					    //la persona inició sesión en Facebook y en tu aplicación.
 					    console.log(response.status)
-					    $('#saludo').text('Hola '+response.name+' has iniciado sesión');
+
+					    ///////no hemos accedido al token del usuario, para que facebook nos permita realizar otras funciones.
+
+					    FB.api('/me',{fields: "email, name,last_name,timezone, link, cover{id}, first_name,middle_name"}, function(response) {
+					    	////// Obteniendo datos de Facebook, haceiendo uso de FB.api
+					    	var nombre = response.name;
+					    	var correo = response.email;
+					    	var id = response.id;
+					    	var foto ="<br><br><img src='http://graph.facebook.com/"+id+"/picture/' width='80px' height='80px' class='circle responsive-img' ><br><br>";
+					    	var enlace = response.link;
+					    	var primer_n = response.first_name;
+					    	var segundo_n = response.middle_name;
+					    	var primer_a = response.last_name;
+					    	var zona_horaria = response.timezone;
+					       $('#saludo').html('<p id="datos">Nombre: '+nombre+'<br>Correo:'+correo+'<br>Id:'+id+'<br>foto:'+foto+'<br>Enlace a perfil: <a href="'+enlace+'">Aquí..</a><br>Primer nombre:'+primer_n+'<br>Segundo nombre:'+segundo_n+'<br>Primer apellido:'+primer_a+'<br>Zona horaria: UTC'+zona_horaria+' </p>');
+					    });
+					    $('#btn-face').hide();
+					    $('#cerrar').show();
 					  } else if(response.status === 'not_authorized') {
 					    // The person is logged into Facebook, but not your app.
 					    //la persona inició sesión en Facebook, pero no en tu aplicación.
 					  } else {
 					    // The person is not logged into Facebook, so we're not sure if
 					    // la persona no inició sesión en Facebook, de modo que no sabes si la inició en tu aplicación. O bien, se llamó a FB.logout() con anterioridad y no se pudo conectar con Facebook.
-
-
 					  }
 					}, {scope: 'public_profile, email'});
 				  });
+
+				  /////Facebook Analitycs, falta afinar esta parte
+				  function onButtonClick() {
+					  // Add this to a button's onclick handler
+					  FB.AppEvents.logEvent("sentFriendRequest");
+					}
 			});
+///////////Cerrar sesión
+			// $('#cerrar').click(function() {
+			// 	FB.logout(function(response) {
+   // 					console.log("Sesión cerrada")
+   // 					$('#saludo #saludo1').text('Sesión terminada con éxito.');
+   // 					$('#datos').hide();
+
+   					
+   // 					$('#btn-face').show();
+			// 	    $('#cerrar').hide();
+			// 	});
+			// })
 	});
+
+
+	/////Cerrar Sesión con la API de Faceboock
 </script>	
 
 
-<div id="Saludo">
+<h3 align="center"></h3>
+<div id="saludo">
 	
 
 
