@@ -1,6 +1,7 @@
 h1{
 	text-align: center;
 	color: teal;
+	display: none;
 }
 #contenedor{
 	/*background-color: red;*/
@@ -9,25 +10,50 @@ h1{
 
 #contenedor #buscar{
 	display: block;
-	width: 70%;
+	width: 100%;
 	margin: 0px auto;
+	/*margin-top: 100px;*/
 	border: none;
-	border:1px solid gray;
+	box-shadow: 0px 6px 10px #BDBDBD;
 	border-radius: 4px;
-	height: 40px;
+	height: 60px;
 	font-family: 'Roboto', sans-serif;
 }
 
 #contenedor #buscar[placeholder]{
 	text-align: justify;
-	font-size: 20px;
+	font-size: 30px;
 }
 #datos{
 	width:70%;
 	margin:0px auto;
-	display: flex;
+	/*display: flex;*/
 	height: 10px;
 }
 #datos p{
 	margin-top: 5px;
+}
+
+#contenedor #buscar:focus{
+	/*border:none;*/
+	box-shadow: 0px 0px 10px #BDBDBD;
+}
+
+#contenedor #buscar:hover{
+	box-shadow: 0px 0px 10px #BDBDBD;
+}
+.no-datos{
+	border-radius: 5px;
+	height: 40px;
+	padding: 5px;
+	color: red;
+	font-size: 20px;
+}
+.articulo{
+	z-index: 1000;
+	position: absolute;
+}
+.articulo article p{
+	margin-top: 20px;
+	text-align: justify;
 }

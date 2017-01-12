@@ -4,7 +4,7 @@
 	if (isset($_POST['valor'])) {
 		$valor = $_POST['valor'];
 
-		$q = "SELECT * FROM registro WHERE nombre LIKE '%$valor%'";
+		$q = "SELECT * FROM registro WHERE nombre LIKE '%$valor%' or correo LIKE '%$valor%' or apellido LIKE '%$valor%'";
 		$db = new connDb();
 		$data = $db->leeTabla($q);
 		if (count($data)>=1){
@@ -16,8 +16,17 @@
 			              <img src="img/IMG_20161030_175743.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
 			            </div>
 			            <div class="col s10">
+			            <strong align="center"><p>Datos de los usuarios</p></strong>
+			            <span class="black-text">
+			                Nombre completos: '.$data[$i]->nombre." ".$data[$i]->apellido.'
+			              </span>
+			              <br>
 			              <span class="black-text">
-			                '.$data[$i]->nombre.'
+			                Correo electrónico: '.$data[$i]->correo.'
+			              </span>
+			              <br>
+			              <span class="black-text">
+			                Teléfono de contacto: '.$data[$i]->telefono.'
 			              </span>
 			            </div>
 			          </div>
@@ -33,3 +42,4 @@
  ?>
 
 
+<p align="center"></p>
