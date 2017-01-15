@@ -2,7 +2,7 @@
 	session_start();
 
 	if(isset($_SESSION["usuario"])) {
-		require_once("clases/conn.php");
+		require_once("../clases/conn.php");
 		$id = $_SESSION["usuario"];
 		$db = new connDb();
 		// print $id;
@@ -11,7 +11,7 @@
 			$nombre = $data[$i]->nombre;
 		}
 	}else{
-		header("location: index.php");
+		header("location: ../index.php");
 	} 
 ?>
 <!DOCTYPE html>
@@ -20,10 +20,10 @@
 	<meta charset="utf-8">
 	<title>Administrador</title>
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/materialize.css">
-	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/materialize.css">
+	<script type="text/javascript" src="../js/materialize.min.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<script type="text/javascript" src="js/buscador.js"></script>
+	<script type="text/javascript" src="../js/buscador.js"></script>
 	<style type="text/css">
 		#buscar{
 			/*background: red*/
@@ -69,7 +69,7 @@
 		<li><a href="#usuarios" value="Crear usuario"><i class="material-icons right agregar">add</i></a></li>
 	</ul>
 	<ul class="right">
-		<li><a href="cerrar.php">Cerrar Sesión</a></li>
+		<li><a href="../cerrar.php">Cerrar Sesión</a></li>
 	</ul>
 </nav>
 <div id="espacio">
@@ -89,9 +89,8 @@
 		$db = new connDb();
 		$data = $db->leeTabla("SELECT * FROM registro");
 		if (count($data)>=1) {
-			print('<div class="container">
-			
-							<div class="col s12 m6 l3">
+			print('<div class="row">
+							<div class="col s12">
 								<table class="centered bordered striped highlight responsive-table">
 									<thead>
 										<th>ID</th>
@@ -113,8 +112,8 @@
 							<td>'.$data[$i]->correo.'</td>
 							<td>'.$data[$i]->contrasena1.'</td>
 							<td>'.$data[$i]->contrasena2.'</td>
-							<td><a href="borrar.php?ideditar='.$data[$i]->id_user.'">Actualizar</a></td>
-							<td><a href="borrar.php?idborrar='.$data[$i]->id_user.'">Borrar</a></td>
+							<td><a href="../borrar.php?ideditar='.$data[$i]->id_user.'">Actualizar</a></td>
+							<td><a href="../borrar.php?idborrar='.$data[$i]->id_user.'">Borrar</a></td>
 							</tr>');
 			}
 			print('</tbody></table>
@@ -172,15 +171,27 @@
   <p id="error_form_admin" align="center"></p>
 </div>
 
+<h5 align="center">Ejemplo de tarjeta para servicios.</h5>
+<br>
 
-
-
-
-
-
-
-
-
+<dir class="row">
+	<div class="col s6 offset-s3">
+	    <p style="font-size: 30px" class="header centered">Matenimiento de su web</p>
+	    <div class="card horizontal">
+	      <div class="card-image">
+	        <img src="http://lorempixel.com/100/190/nature/6">
+	      </div>
+	      <div class="card-stacked">
+	        <div class="card-content">
+	          <p>Tenemos todo para modenizar su pagina web y que lusca como usted lo desea.</p>
+	        </div>
+	        <div class="card-action">
+	          <a href="#">Mas información</a>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+</dir>
 <script type="text/javascript">
 			$(document).ready(function(){
 				$('.modal').modal();

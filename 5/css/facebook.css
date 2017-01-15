@@ -1,0 +1,33 @@
+	input{
+		display: block;
+		width: 50%;
+		margin:5px auto;
+		border: none;
+		box-shadow: 0px 0px 10px #BDBDBD;
+		padding: 10px;
+	}
+
+	form{
+		width: 50%;
+		/*background:red;*/
+		margin: 50px auto 0px auto;
+		padding: 20px;
+		box-shadow: 0px 0px 10px #BDBDBD;
+		border-radius: 5px;
+	}
+	input[value="Enviar"]{
+		background: teal;
+		border: none;
+		cursor: pointer;
+		border-radius: 5px;
+		width: 80px;
+		padding: 7px;
+	}
+	input[value="Facebook"]{
+		background: blue;
+		border: none;
+		cursor: pointer;
+		border-radius: 5px;
+		width: 80px;
+		padding: 7px;
+	}

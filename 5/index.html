@@ -4,153 +4,63 @@
 	<meta charset="UTF-8">
 	<title>Facebook</title>
 	<script src="../4/js/jquery.js"></script>
+	<script src="js/facebook.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/facebook.css">
 	<link rel="stylesheet" type="text/css" href="../4/css/materialize.css">
-	<style type="text/css">
-	input{
-		display: block;
-		width: 50%;
-		margin:5px auto;
-		border: none;
-		box-shadow: 0px 0px 10px #BDBDBD;
-		padding: 10px;
-	}
-
-	form{
-		width: 50%;
-		/*background:red;*/
-		margin: 50px auto 0px auto;
-		padding: 20px;
-		box-shadow: 0px 0px 10px #BDBDBD;
-		border-radius: 5px;
-	}
-	input[value="Enviar"]{
-		background: teal;
-		border: none;
-		cursor: pointer;
-		border-radius: 5px;
-		width: 80px;
-		padding: 7px;
-	}
-	input[value="Facebook"]{
-		background: blue;
-		border: none;
-		cursor: pointer;
-		border-radius: 5px;
-		width: 80px;
-		padding: 7px;
-	}
-</style>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1599969950310836',
-      xfbml      : true,
-      version    : 'v2.8'
-    });
-    FB.AppEvents.logPageView();
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) return;
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/es_LA/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-
-
-
 </head>
 <body>
 
 <form id="face">
 	<input type="text" name="usuario" placeholder="Usuario">
 	<input type="password" name="clave" placeholder="Contraseña">
-	<input type="submit" name="enviar" value="Enviar">
+	<input type="submit" name="enviar" value="Compartir" id="compartir">
 	<input type="submit" name="facebook" value="Facebook" id="btn-face" onclick="onButtonClick()">
 	<center>
 	<a href="#" class="btn" id="cerrar">Cerrar Sesión</a>
 	</center>
 </form>
 
-<!-- Esta es una de la treferencia super util a la hora de obtener losdatos de Facebook por medio de su api -->
-
-<!-- facebook.developers.com -->
-<!-- https://developers.facebook.com/tools/explorer/145634995501895/?method=GET&path=me%3Ffields%3Did%2Ccover%2Cemail%2Ccontext%2Cage_range&version=v2.8 -->
-<script type="text/javascript">
-
-/////////////Inicio de sesión con  la API de Facebook
-	$(document).ready(function() {
-		$('#cerrar').hide();
-		$('#face').submit(function(e) {	
-			e.preventDefault();		
-		});
-			$('#btn-face').click(function(){
-				  FB.getLoginStatus(function() {
-				   FB.login(function(response) {
-
-				   	// console.log(response.status)
-					  if (response.status === 'connected') {
-					    // Logged into your app and Facebook.
-					    //la persona inició sesión en Facebook y en tu aplicación.
-					    console.log(response.status)
-
-					    ///////no hemos accedido al token del usuario, para que facebook nos permita realizar otras funciones.
-
-					    FB.api('/me',{fields: "email, name,last_name,timezone, link, cover{id}, first_name,middle_name"}, function(response) {
-					    	////// Obteniendo datos de Facebook, haceiendo uso de FB.api
-					    	var nombre = response.name;
-					    	var correo = response.email;
-					    	var id = response.id;
-					    	var foto ="<br><br><img src='http://graph.facebook.com/"+id+"/picture/' width='80px' height='80px' class='circle responsive-img' ><br><br>";
-					    	var enlace = response.link;
-					    	var primer_n = response.first_name;
-					    	var segundo_n = response.middle_name;
-					    	var primer_a = response.last_name;
-					    	var zona_horaria = response.timezone;
-					       $('#saludo').html('<p id="datos">Nombre: '+nombre+'<br>Correo:'+correo+'<br>Id:'+id+'<br>foto:'+foto+'<br>Enlace a perfil: <a href="'+enlace+'">Aquí..</a><br>Primer nombre:'+primer_n+'<br>Segundo nombre:'+segundo_n+'<br>Primer apellido:'+primer_a+'<br>Zona horaria: UTC'+zona_horaria+' </p>');
-					    });
-					    $('#btn-face').hide();
-					    $('#cerrar').show();
-					  } else if(response.status === 'not_authorized') {
-					    // The person is logged into Facebook, but not your app.
-					    //la persona inició sesión en Facebook, pero no en tu aplicación.
-					  } else {
-					    // The person is not logged into Facebook, so we're not sure if
-					    // la persona no inició sesión en Facebook, de modo que no sabes si la inició en tu aplicación. O bien, se llamó a FB.logout() con anterioridad y no se pudo conectar con Facebook.
-					  }
-					}, {scope: 'public_profile, email'});
-				  });
-
-				  /////Facebook Analitycs, falta afinar esta parte
-				  function onButtonClick() {
-					  // Add this to a button's onclick handler
-					  FB.AppEvents.logEvent("sentFriendRequest");
-					}
-			});
-///////////Cerrar sesión
-			// $('#cerrar').click(function() {
-			// 	FB.logout(function(response) {
-   // 					console.log("Sesión cerrada")
-   // 					$('#saludo #saludo1').text('Sesión terminada con éxito.');
-   // 					$('#datos').hide();
-
-   					
-   // 					$('#btn-face').show();
-			// 	    $('#cerrar').hide();
-			// 	});
-			// })
-	});
+<h3 align="center" style="color: teal">Datos obtenidos de Facebook.com, debes hacer clic en el boton facebook y aceptar la sulitud</h3>
 
 
-	/////Cerrar Sesión con la API de Faceboock
-</script>	
-
-
-<h3 align="center"></h3>
 <div id="saludo">
-	
+	<!-- <div class="container"> -->
+		<div class="row">
+			<div class="col s12">
+				<table class="centered bordered striped highlight responsive-table s4">
+					<thead>
+						<th>Nombre</th>
+						<th>Correo</th>
+						<th>ID usuario</th>
+						<th>Foto</th>
+						<th>Enlace a Perfil</th>
+						<th>Primer nombre</th>
+						<th>Segundo nombre</th>
+						<th>Primer apellido</th>
+						<th>Zona horaria</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td id="nombre"></td>
+							<td id="correo"></td>
+							<td id="idus"></td>
+							<td id="foto"></td>
+							<td id="enlacep"></td>
+							<td id="primer-n"></td>
+							<td id="segundo-n"></td>
+							<td id="primer-a"></td>
+							<td id="zona-horaria"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+
+		<h3 style="color: teal;">
+			Compartir información
+		</h3>
+	<!-- </div> -->
 
 
 </div>

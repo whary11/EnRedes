@@ -66,10 +66,6 @@ $(document).ready(function() {
 	});
 
 });
-
-
-
-
 ////////////Formulario de admin///////////
 
 $(document).ready(function(){
@@ -109,13 +105,12 @@ $(document).ready(function(){
 	// Afinar aquí mi código, no se ha podido hacer la igualdad...
 				if (resp == 1234567890) {
 					$('#error_form_admin').css('color', teal);
-					location.href = "admin.php";
+					location.href = "administrador/admin.php";
 				}else{
 					$('#error_form_admin').text("Usuario no registrado.");
 					$('#error_form_admin').css('color', red);
 				}
 			});
 		}
-
   })
 });

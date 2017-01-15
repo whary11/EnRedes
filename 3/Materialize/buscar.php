@@ -7,7 +7,7 @@
 
 		
 		if (count($data)>=1) {
-			print('<div class="container">
+			print('
 						<div class="row">
 							<div class="grid-example col s12">
 								<table class="centered bordered striped highlight responsive-table">
@@ -38,7 +38,7 @@
 				
 			}
 			print('</tbody></table>
-							</div>
+						
 							</div>
 							<p>Se han encontrado '.count($data).' resultados</p></div>');
 

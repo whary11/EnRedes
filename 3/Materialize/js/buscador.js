@@ -4,7 +4,7 @@ $(document).ready(function() {
 		event.preventDefault();
 		});
 		var datos = $('#buscar').serialize();
-		$.post('buscar.php', datos, function(data, textStatus, xhr) {
+		$.post('../buscar.php', datos, function(data, textStatus, xhr) {
 			$('#resultado').html(data);
 		});
 	})
@@ -31,7 +31,7 @@ $(document).ready(function() {
 						'color': 'teal',
 						'fontSize': '30px'
 					});
-					location.href = "admin.php";
+					location.href = "administrador/admin.php";
 				}else{
 					event.preventDefault();
 					$('#error_form_admin').text("El usuario ya está registrado.");

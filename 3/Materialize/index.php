@@ -3,7 +3,7 @@
   session_start();
   $page;
   if (isset($_SESSION["usuario"])) {
-    $page = "admin.php";
+    $page = "administrador/admin.php";
   }else{
     $page = "#admin";
   }
