@@ -3,17 +3,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Proyectos</title>
-	<link rel="stylesheet" type="text/css" href="css/materialize.css">
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+	<script type="text/javascript" src="js/materialize.min.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<style type="text/css">
+	.tarjetas{
+		box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+	</style>
 </head>
 <body style="font-family: 'Roboto', sans-serif;">
-
-
-	<h1 align="center">Tarjeta para presentación de servicios</h1>
-	<section style=" padding: 10px; width: 350px; margin: 10px auto 10px auto; border-radius:5px; box-shadow: 1px 1px 15px gray;border: 1px solid teal;">
-		<p align="center" style="font-size: 30px"><i style="font-size: 90px; color: teal;" class="material-icons">devices_other</i><hr><p style="font-size: 20px; text-align: center; font-weight: bold">Matenimiento de su sitio web</p></p>
-		<p style="text-align: justify; padding: 5px;font-size: 12px;">Es servicio te permitirá materner siempre actualizada tu pagina web con los mejores estilos y diseños del momento, también te ayudamos con este servicio a mejor la la usabilidad y funcionalidad de tu sitio web.<br>Contamos con un equipo capacitado para ayudarte.</p>
+	<section class="hoverable tarjetas" style="padding:3%; width: 50%; margin: 10px auto 10px auto; border-radius:5px; ">
+		<p align="center" style="font-size: 30px"><i  style="font-size: 90px;;" class="material-icons">devices_other</i><hr><p style="font-size: 20px; text-align:center; font-weight: bold">Diseño y Desarrollo</p></p>
+		<p style="text-align: justify; padding: 5px;"><!-- Es servicio te permitirá materner siempre actualizada tu pagina web con los mejores estilos y diseños del momento, también te ayudamos con este servicio a mejor la la usabilidad y funcionalidad de tu sitio web. -->Obtenga un sitio web profesional.
+Soluciones Creativas y Efectivas para iniciar su presencia en Internet.<br>Contamos con un equipo capacitado para ayudarte.</p>
 		<!-- Etiquetas -->
 		<div class="chip card-panel teal lighten-2">
 	    	<i class="close material-icons" style="cursor:auto;">done</i>
@@ -27,9 +32,73 @@
 	    	<i class="close material-icons" style="cursor:auto;">done</i>
 	    	Estilo
 	  	</div>
+	  	<div class="chip card-panel teal lighten-2">
+	    	<i class="close material-icons" style="cursor:auto;">done</i>
+	    	Responsabilidad
+	  	</div>
+	  	<div class="chip card-panel teal lighten-2">
+	    	<i class="close material-icons" style="cursor:auto;">done</i>
+	    	Optimización
+	  	</div>
 	</section>
+<!-- Derechos de autor -->
+	<blockquote class="hoverable" style="width: 400px; margin: 0px auto;font-family: 'Roboto', sans-serif;">Elaboró: Luis Fernando Raga Renteria - CEO EnRedes</blockquote>
 
-	<blockquote style="width: 400px; margin: 0px auto;font-family: 'Roboto', sans-serif;">Elaboró: Luis Fernando Raga Renteria - CEO EnRedes</blockquote>
-	
+
+
+
+	<!-- Formulario para administrar los servicios -->
+	<br>
+	<br>
+<div class="container">
+	<div class="row">
+		<form style="box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 50%; margin: 0px auto;padding: 20px;border-radius: 5px;">
+		  <!-- <div class="row"> -->
+			<p style="text-align: center"><a target="_blank" href="https://material.io/icons/#ic_3d_rotation">Ten en cuenta esta lista para tu icono personalizado.</a></p>
+		  	<div class="input-field col s12" id="icono-servi">
+		      <input id="icono-servi1" type="text" class="validate" autofocus>
+		      <label for="icono-servi1" data-error="wrong">Escribe el nombre del icono acá:</label><i style="font-size: 20px; color: teal;" class="material-icons"></i>
+		    </div>
+
+		    <script type="text/javascript">
+		    	$('#icono-servi').keyup(function(event) {
+		    		$('#icono-servi i').text($('#icono-servi1').val());
+		    	});
+		    </script>
+		    <div class="input-field col s12">
+		      <input id="servicio" type="text" class="validate" >
+		      <label for="servicio" data-error="wrong" data-success="right">Nombre del servicio</label>
+		    </div>
+		    <div class="input-field col s12">
+		      <input id="descripcion" type="text" class="materialize-textarea" >
+		      <label for="descripcion" data-error="wrong" data-success="right">Descripción</label>
+		    </div>
+		    <p align="center">Etiquetas de servicio</p>
+		    <p>
+		      <input type="checkbox" class="filled-in" id="servicio1" checked="checked" />
+		      <label for="servicio1">Servcio 1</label>
+		    </p>
+		    <p>
+		      <input type="checkbox" class="filled-in" id="servicio2" checked="checked" />
+		      <label for="servicio2">Servcio 2</label>
+		    </p>
+		    <p>
+		      <input type="checkbox" class="filled-in" id="servicio3" checked="checked" />
+		      <label for="servicio3">Servcio 3</label>
+		    </p>
+		    <p>
+		      <input type="checkbox" class="filled-in" id="servicio4" checked="checked" />
+		      <label for="servicio4">Servcio 4</label>
+		    </p>
+	</form>
+	</div>
+</div>
+<script type="text/javascript">
+	// $(document).ready(function() {
+	//     $('select').material_select();
+	//   });
+</script>
+
+
 </body>
 </html>

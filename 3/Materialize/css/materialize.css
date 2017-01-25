@@ -7646,9 +7646,9 @@ input[type=range]:focus::-ms-fill-upper {
   z-index: 2;
   bottom: 30px;
 }
-
+/*Combiar el color de fondo del slider*/
 .slider .slides {
-  background-color: #9e9e9e;
+  background-color: white;
   margin: 0;
   height: 400px;
 }

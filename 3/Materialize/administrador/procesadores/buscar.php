@@ -1,11 +1,9 @@
 <?php 
-	require_once("clases/conn.php");
+	require_once("../../clases/conn.php");
 	if (isset($_POST["buscador"])) {
 		$valor = $_POST["buscador"];
 		$db = new connDb();
 		$data = $db->leeTabla("SELECT * FROM registro WHERE nombre LIKE '%$valor%' or apellido LIKE '%$valor%' or telefono LIKE '%$valor%' or correo LIKE '%$valor%' ");
-
-		
 		if (count($data)>=1) {
 			print('
 						<div class="row">
@@ -32,15 +30,15 @@
 							<td>'.$data[$i]->correo.'</td>
 							<td>'.$data[$i]->contrasena1.'</td>
 							<td>'.$data[$i]->contrasena2.'</td>
-							<td><a href="borrar.php?ideditar='.$data[$i]->id_user.'">Actualizar</a></td>
-							<td><a href="borrar.php?idborrar='.$data[$i]->id_user.'">Borrar</a></td>
+							<td><a href="procesadores/borrar.php?ideditar='.$data[$i]->id_user.'">Actualizar</a></td>
+							<td><a href="procesadores/borrar.php?idborrar='.$data[$i]->id_user.'">Borrar</a></td>
 							</tr>');
 				
 			}
 			print('</tbody></table>
-						
+							<br>
 							</div>
-							<p>Se han encontrado '.count($data).' resultados</p></div>');
+							<p style="text-align:center;">Se han encontrado '.count($data).' resultados</p></div>');
 
 			}else{
 				print('<h2 align="center">No hemos encontrado Resultados.</h2>');
@@ -49,7 +47,3 @@
 			header("location: buscador.php");
 		}
  ?>
-
-
-
-

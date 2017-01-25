@@ -24,7 +24,6 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<!-- <div class="navbar-fixed"> -->
 	<nav class="">
     	<div class="nav-wrapper">
       	<a href="#!" class="brand-logo right"><img src="img/logo.jpg" id="logo"></a>
@@ -46,59 +45,47 @@
       </div>
       </div>
     </nav>
-
-<!-- Espacio para bajar el Slider y permitir que se pueda ver -->
 <div id="espacio"></div>
-<!-- Sliders -->
 <div class="slider">
-<div class="content">
     <ul class="slides">
       <li>
         <img src="img/apple-606761_1920.jpg"> <!-- random image -->
         <div class="caption center-align">
-          <h3>Slide uno Center</h3>
-          <h5 class="light grey-text text-lighten-3">Descripción 1</h5>
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="img/presentation-1794128_1280.png"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>Left Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
         </div>
       </li>
       <li>
         <img src="img/background.jpg"> <!-- random image -->
-        <div class="caption left-align">
-          <h3>Slide dos Left</h3>
-          <h5 class="light red-text text-lighten-3">Descripción 2</h5>
-        </div>
-      </li>
-      <li>
-        <img src="img/imac-605421_1920.jpg"> <!-- random image -->
         <div class="caption right-align">
-          <h3>Slide 3 Right</h3>
-          <h5 class="light grey-text text-lighten-3">Descripción 3</h5>
+          <h3>Right Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
         </div>
       </li>
       <li>
-        <img src="img/presentation-1794128_1280.png"> <!-- random image -->
+        <img src="img/background.jpg"> <!-- random image -->
         <div class="caption center-align">
-          <h3>Slide 4</h3>
-          <h5 class="light grey-text text-lighten-3">Descripción 4</h5>
-        </div>
-      </li>
-      <li>
-        <img src="img/presentation-1794128_1280.png"> <!-- random image -->
-        <div class="caption center-align">
-          <h3>Slide 4</h3>
-          <h5 class="light grey-text text-lighten-3">Descripción 4</h5>
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
         </div>
       </li>
     </ul>
   </div>
-  </div>
+
 <!-- Visión -->
 <div id="ir">
   <i class="material-icons icon">expand_less</i>
 </div>
 <div class="container" id="vision">
-<!-- <div class="row"> -->
 <div class="col l12 s12">
-<h2 class="center-align">Visión EnRedes</h2>
+<h2 class="center-align">Un poco de nosotros</h2>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -114,60 +101,26 @@
 </div>
 </div>
 </div>
-  <!-- Tarjetas -->
-<div class="container">
-<div class="row">
-<h4 class="center-align">Equipo de trabajo</h4>
-<?php 
-  $db = new connDb();
-  $q="SELECT * FROM contenidos";
-  $data = $db->leeTabla($q);
-  // print count($data);
-  for ($i=0; $i <count($data); $i++) { 
-    print('<div class="col l6 s12">
-           <div class="card card-panel z-depth-2">
-              <div class="card-image waves-effect waves-block waves-light col s6">
-                <img class="z-depth-2" src="img/fotos/'.$data[$i]->imagen.'" width="100px">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Desarrollador Web<i class="material-icons right">more_vert</i></span>
-                <div class="limit">
-                <p>
-                '.$data[$i]->contenido.'</p>
-              <div>
-                <p><a href="index.php#admin?id=123">EnRedes</a></p>
-              </div>
-              </div>
-              </div>
-              <div class="card-reveal blue lighten-3">
-                <span class="card-title grey-text text-darken-4">'.$data[$i]->titulo.'<i class="material-icons right">close</i></span>
-                <p>'.$data[$i]->contenido.'</p>
-              </div>
-            </div>
-          </div>'
-    );
-  }
-  $db->close();
- ?>
+<hr>
+
+
   <!-- <a href="index.php?men=memem">enviar</a> -->
 <!-- 2 -->
   </div>
   </div>
-		<!-- Administrador -->
+    <!-- Administrador -->
 <div id="admin" class="modal modal_admin">
   <div class="modal-content">
     <form  id="form_admin" action="valida_enredes_er.php" method="POST">
-    	<!-- <h4 class="center-align">Iniciar Sesión</h4> -->
       <div class="input-field col s6">
-      	<input type="text" name="usuario" id="usuario" class="validate" autofocus>
-      	<label for="usuario">Usuario</label>
+        <input type="text" name="usuario" id="usuario" class="validate" autofocus>
+        <label for="usuario">Usuario</label>
       </div>
       <div class="input-field col s6">
-      	<input type="password" name="clave" id="clave" class="validate">
-      	<label for="clave" id="clv">Contraseña</label>
+        <input type="password" name="clave" id="clave" class="validate">
+        <label for="clave" id="clv">Contraseña</label>
       </div>
-      	<input type="submit" class="btn" name="iniciar_sesion" value="Ingresar"/>
-
+        <input type="submit" class="btn" name="iniciar_sesion" value="Ingresar"/>
     </form>
   </div>
   <p id="error_form_admin" align="center"></p>
@@ -177,22 +130,65 @@
 <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
-		<h2 class="center-align flow-textblack">Buscar</h2>
-		 	<form action="index.php" class="col 6" method="post">
-		 		<!-- <div class="input-field row"> -->
-		 			<input type="text" name="nombre" id="nombre" class="validate">
+    <h2 class="center-align flow-textblack">Buscar</h2>
+      <form action="index.php" class="col 6" method="post">
+        <!-- <div class="input-field row"> -->
+          <input type="text" name="nombre" id="nombre" class="validate">
           <button class="btn col s2">Buscar</button>
-		 		<!-- </div> -->
-	 		</form>
-	</div>
+        <!-- </div> -->
+      </form>
+  </div>
     <div class="modal-footer">
       <a href="#" class=" modal-action modal-close waves-effect waves-green btn red">Cerrar</a>
     </div>
   </div>
 <!-- Contactanos  -->
 <!-- Contactenos
+
  -->
 
+<h4 class="center-align">Nuestro Servicios</h4>
+ <div class="slider" >
+    <ul class="slides">
+ <?php 
+$db = new connDb();
+  $q="SELECT * FROM servicios";
+  $data = $db->leeTabla($q);
+  // print count($data);  
+  for ($i=0; $i <count($data); $i++) {
+    print('<li>
+      <section class="hoverable tarjetas" style="padding:3%; width: 30%; margin: 10px auto 10px auto; border-radius:5px;">
+        <p align="center" style="font-size: 30px"><i  style="font-size: 90px;;" class="material-icons">'.utf8_encode($data[$i]->icono).'</i><hr><p style="font-size: 20px; text-align:center; font-weight: bold">'.utf8_encode($data[$i]->nombre_servicio).'</p></p>
+        <p style="text-align: justify; padding: 5px;">'.utf8_encode($data[$i]->descripcion).'</p>
+         <!-- Etiquetas -->
+        <div class="chip card-panel lighten-2" style="background:'.utf8_encode($data[$i]->color).'">
+          <i class="close material-icons" style="cursor:auto;">done</i>
+        '.utf8_encode($data[$i]->etiqueta1).'
+        </div>
+        <div class="chip card-panel lighten-2" style="background:'.utf8_encode($data[$i]->color).'">
+          <i class="close material-icons" style="cursor:auto;">done</i>
+          '.utf8_encode($data[$i]->etiqueta2).'
+        </div>
+        <div class="chip card-panel lighten-2" style="background:'.utf8_encode($data[$i]->color).'">
+          <i class="close material-icons" style="cursor:auto;">done</i>
+          '.utf8_encode($data[$i]->etiqueta3).'
+        </div>
+        <div class="chip card-panel lighten-2" style="background:'.utf8_encode($data[$i]->color).'">
+          <i class="close material-icons" style="cursor:auto;" >done</i>
+          '.utf8_encode($data[$i]->etiqueta4).'
+        </div>
+        <div class="chip card-panel lighten-2">
+          <i class="close material-icons" style="cursor:auto;" style="background:'.utf8_encode($data[$i]->color).'">done</i>
+          '.utf8_encode($data[$i]->etiqueta5).'
+        </div>
+      </section>
+      </li>
+      ');
+  }
+$db->close();
+?>
+    <!-- </ul> -->
+  </div>
 <!-- Footer -->
 <footer class="page-footer">
 		<div class="container">
@@ -210,7 +206,7 @@
 		</div>
 		<div class="footer-copyright">
             <div class="container">
-            © 2014 Copyright EnRedes
+            © 2016 Copyright EnRedes
             <a class="grey-text text-lighten-4 right" href="#admin">Acá pueden ir las redes sociales</a>
             </div>
           </div>
@@ -219,7 +215,8 @@
 			$(document).ready(function(){
 				$('.modal').modal();
 				$(".button-collapse").sideNav();
-				$('.slider').slider();
+				// Pause slider
+        $('.slider').slider();
 			});	
 	</script>
 </body>

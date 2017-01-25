@@ -1,6 +1,6 @@
 <?php 
 	if (isset($_POST['usuario_insert'])) {
-		require_once("clases/conn.php");
+		require_once("../../clases/conn.php");
 		$db = new connDb();
 		$nombre = $_POST["nombre"];
 		$apellido = $_POST["apellido"];
@@ -13,7 +13,7 @@
 			print("1111");
 		}else{
 			$db->abc("INSERT INTO `registro` (`id_user`, `nombre`, `apellido`, `telefono`, `correo`, `contrasena1`, `contrasena2`) VALUES (NULL, '$nombre', '$apellido', '$telefono', '$correo', '$clave1', '$clave2')");
-			print("Datos Registrados con éxito....");
+			// print("Datos Registrados con éxito....");
 		}
 	}
  ?>
