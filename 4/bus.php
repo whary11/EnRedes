@@ -1,6 +1,5 @@
 <?php 
 	require_once "clases/conn.php";
-
 	if (isset($_POST['valor'])) {
 		$valor = $_POST['valor'];
 
@@ -29,17 +28,14 @@
 			                Teléfono de contacto: '.$data[$i]->telefono.'
 			              </span>
 			            </div>
-			          </div>
-			        </div>
-			    </div>';
+			    </div>
+			    </div>
+			    </div>' ;
 			}
 		}else{
-			print "111";
+			print "<p class='nada'>Hay Usuarios registrados.</p>";
 		}
 	}else{
 		header("location: index.php");
 	}
  ?>
-
-
-<p align="center"></p>

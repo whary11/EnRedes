@@ -1,3 +1,6 @@
+body{
+	font-family:'Roboto', sans-serif;
+}
 h1{
 	text-align: center;
 	color: teal;
@@ -5,21 +8,21 @@ h1{
 }
 #contenedor{
 	/*background-color: red;*/
-	width: 100%;
+	width: 70%;
+	margin-left: 15%;
 }
-
 #contenedor #buscar{
 	display: block;
 	width: 100%;
-	margin: 0px auto;
-	/*margin-top: 100px;*/
+	margin: -10px auto 0px auto;
 	border: none;
-	box-shadow: 0px 6px 10px #BDBDBD;
+	box-shadow: 0px 0px 5px #BDBDBD;
 	border-radius: 4px;
-	height: 60px;
-	font-family: 'Roboto', sans-serif;
+	height: 40px;
+	padding: 10px;
+	font-family:'Roboto', sans-serif;
+	background-color: white;
 }
-
 #contenedor #buscar[placeholder]{
 	text-align: justify;
 	font-size: 30px;
@@ -27,18 +30,26 @@ h1{
 #datos{
 	width:70%;
 	margin:0px auto;
-	/*display: flex;*/
-	height: 10px;
+	height: auto;
+	z-index: 1000;
+	position: fixed;
+	margin-left:1%;
+	background-color: white;
+	box-shadow: 0px 0px 1px #BDBDBD;
 }
-#datos p{
+#datos .nada{
 	margin-top: 5px;
+	width:70%;
+	text-align: center;
+	padding: 5px 10px;
+	height: 30px;
+	background-color: white;
+	border-radius: 4px;
 }
-
 #contenedor #buscar:focus{
 	/*border:none;*/
 	box-shadow: 0px 0px 10px #BDBDBD;
 }
-
 #contenedor #buscar:hover{
 	box-shadow: 0px 0px 10px #BDBDBD;
 }
