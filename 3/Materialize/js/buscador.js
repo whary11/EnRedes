@@ -87,8 +87,6 @@ $(document).ready(function() {
 					});
 				}
 			});
-	
-		
 		});
 		$(document).ready(function(){
 			$('.modal').modal();
@@ -96,20 +94,17 @@ $(document).ready(function() {
 		$(document).ready(function() {
 			$('select').material_select();
 		});
-
-
-	///Edición de servicios}
+	///Edición de servicios.
 	$('#serviciosDesple').hide();
 	var bandera = true;
 	$('#EdicionServi').click(function(event) {
 		if(bandera==true){
-			$('#serviciosDesple').show();
+			$('#serviciosDesple').show("slow");
+			$('#EdicionServi').text('Ocultar Servicios');			
 			bandera = false;
-			var scroll = $(document).height();
-			$(document).scrollTop(scroll)
-			// alert(scroll)
 		}else{
-			$('#serviciosDesple').hide();
+			$('#serviciosDesple').hide("slow");
+			$('#EdicionServi').text('Mostrar Servicios');
 			bandera = true;
 		}
 	});

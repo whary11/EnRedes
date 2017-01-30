@@ -17,7 +17,7 @@
 <html lang="es">
 <head>
 	<meta charset="utf-8">
-	<title>Administrador</title>
+	<title>Administrador - EnRedes</title>
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/materialize.css">
 	<script type="text/javascript" src="../js/materialize.min.js"></script>
@@ -206,7 +206,7 @@ for ($i=1; $i < 6; $i++) {
 </div>
 
 <div id="editar_servicio" style="text-align: center">
-	<a id="EdicionServi" style="cursor: pointer;">Editar Servicio</a>
+	<p id="EdicionServi" style="cursor: pointer; color:#2196f3;">Mostrar Servicios</p>
 	<div id="serviciosDesple">
 		<?php 
 			$db = new connDb();
@@ -231,7 +231,7 @@ for ($i=1; $i < 6; $i++) {
 				print('<tr>	<td>'.$data[$i]->icono.'</td>
 							<td>'.$data[$i]->color.'</td>
 							<td>'.$data[$i]->nombre_servicio.'</td>
-							<td>'.$data[$i]->descripcion.'</td>
+							<td><a href="procesadores/editar_servi.php?id='.$data[$i]->id.'" alt="Los servicios">'.$data[$i]->descripcion.'<a/></td>
 							<td>'.$data[$i]->etiqueta1.'</td>
 							<td>'.$data[$i]->etiqueta2.'</td>
 							<td>'.$data[$i]->etiqueta3.'</td>
@@ -245,7 +245,6 @@ for ($i=1; $i < 6; $i++) {
 							<p style="text-align:center;">Se han encontrado '.count($data).' resultados</p></div>');
 			$db->close();
 		}
-
 		 ?>
 	</div>
 </div>
@@ -254,10 +253,8 @@ for ($i=1; $i < 6; $i++) {
 <script type="text/javascript">
 			$(document).ready(function(){
 				$('.modal').modal();
+				$('select').material_select();
 			});	
-			$(document).ready(function() {
-				    $('select').material_select();
-				});
 	</script>
 </body>
 </html>
