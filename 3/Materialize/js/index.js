@@ -5,14 +5,11 @@ $(document).ready(function() {
 		if(scrolle>50){
 		$('nav').css({
 			"position":"fixed",
-			"marginTop":"-10px",
-			"marginBottom":"100px"
+			"marginTop":"10px"
 		});
-		
-		$('#espacio').css({
-			"padding":"10px",
-			// "backgroundColor":"gray"
-		});
+		$('#uno h1').css({
+			"padding-top":"100px"
+		})
 		}
 	});
 	var bandera = true;
@@ -75,18 +72,28 @@ $(document).ready(function(){
 			clave.css('borderColor', teal);
 			var info = $('#form_admin').serialize();
 
-				$.post(pet,info, function(resp,estado,Html){			
-	// Afinar aquí mi código, no se ha podido hacer la igualdad...
-				if (resp == 1234567890) {
-					$('#error_form_admin').css('color', teal);
-					location.href = "administrador/admin.php";
-				}else{
-					$('#error_form_admin').text("Usuario no registrado.");
-					$('#error_form_admin').css('color', red);
-				}
+			$.post(pet,info, function(resp,estado,Html){			
+// Afinar aquí mi código, no se ha podido hacer la igualdad...
+			if (resp == 1234567890) {
+				$('#error_form_admin').css('color', teal);
+				location.href = "administrador/admin.php";
+			}else{
+				$('#error_form_admin').text("Usuario no registrado.");
+				$('#error_form_admin').css('color', red);
+			}
 			});
 		}
   })
+	// control del menú
+	var bandera =
+	$('#mmenu i, nav ul').click(function(){
+	if($(window).width()<=900){
+		$('nav ul').toggleClass('toggle-menu');
+	}else{
+		alert('El ancho no es válido.')
+	}
+	})
+
 	//////Esliders 
 	
 });
