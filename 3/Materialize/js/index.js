@@ -5,7 +5,7 @@ $(document).ready(function() {
 		if(scrolle>50){
 		$('nav').css({
 			"position":"fixed",
-			"marginTop":"10px"
+			"marginTop":"1px"
 		});
 		$('#uno h1').css({
 			"padding-top":"100px"
@@ -71,7 +71,6 @@ $(document).ready(function(){
 			$('#error_form_admin').text('');
 			clave.css('borderColor', teal);
 			var info = $('#form_admin').serialize();
-
 			$.post(pet,info, function(resp,estado,Html){			
 // Afinar aquí mi código, no se ha podido hacer la igualdad...
 			if (resp == 1234567890) {
