@@ -1,44 +1,18 @@
 $(document).ready(function() {
-	var alturaNav = $('nav').height();
+	//desencadenar una acción cuando se haga scroll
 	$(document).scroll(function(){
-		var prueba = $(document).scrollTop();
-		if (prueba>=40) {
-			$('nav').css({
-				'position': 'fixed',
-				'background':'blue',
-				'height': '120px',
-				'paddingTop':'7px' 
-			});
-			$('#logo').css({
-				'marginTop':'12px',
-				'width': '80px',
-				'height': '80px',
-				'marginRight':'40px'
-			});
-			$(".menu .font-20").css({
-				'marginTop':'20px'
-			});
-			$("#ir .icon").css({
-			});
-		}else{
-			$('nav').css({
-				'position': 'fixed',
-				'height':'100px',
-				'background':'red',
-				'paddingTop':'7px'
-			});
-			$('#logo').css({
-				'marginTop':'-4px',
-				'width': '90px',
-				'height': '90px',
-				'marginRight':'0px'
-			});
-			$(".menu .font-20").css({
-				'marginTop':'12px'
-			});
-			$("#ir .icon").css({
-				'color':'black'
-			});
+		var scrolle = $(document).scrollTop();
+		if(scrolle>50){
+		$('nav').css({
+			"position":"fixed",
+			"marginTop":"-10px",
+			"marginBottom":"100px"
+		});
+		
+		$('#espacio').css({
+			"padding":"10px",
+			// "backgroundColor":"gray"
+		});
 		}
 	});
 	var bandera = true;

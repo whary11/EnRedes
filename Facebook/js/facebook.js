@@ -17,18 +17,12 @@ FB.AppEvents.logPageView();
  js.src = "//connect.facebook.net/es_LA/sdk.js";
  fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
-
-
-
   /////////////Inicio de sesión con  la API de Facebook
 $(document).ready(function() {
 	$('#cerrar').hide();
 	$('#face').submit(function(e) {	
 		e.preventDefault();		
 	});
-
-
-
 	$('#compartir').click(function() {
 	// alert(event.timeStamp());
 
