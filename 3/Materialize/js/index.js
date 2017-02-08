@@ -88,8 +88,6 @@ $(document).ready(function(){
 	$('#mmenu i, nav ul').click(function(){
 	if($(window).width()<=900){
 		$('nav ul').toggleClass('toggle-menu');
-	}else{
-		alert('El ancho no es válido.')
 	}
 	})
 
