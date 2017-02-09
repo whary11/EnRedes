@@ -18,7 +18,7 @@ nav{
 	margin-bottom: 10%;
 	font-size: 25px;
 	background-image: url(../img/home-office-336373_1280.jpg);
-	background-repeat: no-repeat;
+	background-repeat:repeat;
 	margin-top:-40px; 
 	color:black;
 	font-style: italic;
@@ -86,7 +86,7 @@ nav ul li a{
 	box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.2), 0 0px 23px 0 rgba(0, 0, 0, 0.19);
 }
 /*Suscripción*/
-#suscribirse{
+/*#suscribirse{
 	width: 60%;
 	margin: auto;
 }
@@ -104,13 +104,12 @@ nav ul li a{
 	border: none;
 }
 #senvia{
-	/*width:40px;*/
 	height: 30px;
 	background-color:#F4512C;
 }
 #solucion{
 	padding-top: 100px;
-}
+}*/
 #mmenu{
 	display: none;
 }
@@ -118,9 +117,9 @@ nav ul li a{
 	margin-left:0px;
 }
 /*Hacer responsive*/
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1050px) {
 	 nav ul li{
-	 	background-color: gray;
+	 	background-color:  #FFD740;
 		float: none;
 		padding: 10px;
 		/*color: red;*/
@@ -139,6 +138,9 @@ nav ul li a{
 		margin-left: -200px;
 		transition: 1s;
 	 }
+	 #uno{
+	 	background-image: white;
+	 }
 	#mmenu{
 	 	display: block;
 	 	float: left;
@@ -155,6 +157,31 @@ nav ul li a{
 	 	color: black;
 	 	font-size: 20px;
 	 }
+	 #escibe{
+	 	display: none;
+	 }
+}
+
+#escibe p{
+	position: relative;
+}
+
+#escibe p span{
+	position: absolute;
+	right: 0;
+	width: 0;
+	background:#FFD740;
+	border-left: 1px solid black;
+	margin:auto;
+	animation: maquina 4s infinite alternate steps(91);
+}
+@keyframes maquina {
+	from{
+		width: 100%;
+	}
+	to{
+		width: 0%;
+	}
 }
 
 

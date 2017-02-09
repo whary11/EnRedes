@@ -86,7 +86,7 @@ $(document).ready(function(){
 	// control del menú
 	var bandera =
 	$('#mmenu i, nav ul').click(function(){
-	if($(window).width()<=900){
+	if($(window).width()<=1050){
 		$('nav ul').toggleClass('toggle-menu');
 	}
 	})
