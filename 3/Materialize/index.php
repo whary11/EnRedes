@@ -33,7 +33,7 @@
   	<ul class="left">
       <li><a href="#">Blog <i class="material-icons right">credit_card</i></a></li>
       <li><a href="#contacto">Contactenos<i class="material-icons right">person_pin</i></a></li>
-      <li><a href="<?php print($page) ?>">Adminstrador <i class="material-icons right">mode_edit</i></a></li>
+      <li><a href="<?php print($page) ?>">Admin<i class="material-icons right">mode_edit</i></a></li>
   	</ul>
     </nav>
 <!-- Visión -->
@@ -43,17 +43,17 @@
 
  
   <section id="uno">
-    <h1 class="center-align">Misión</h1>
-    <p>
+    <h1>Misión</h1>
+    <p id="p1">
     Ofrecer a nuestros clientes soluciones integrales con tecnologías de innovaciones permanentes y aplicables de manera segura, que permita un buen posicionamiento en el mercado en red de manera productiva y competitiva para aquellas empresas o clientes  que se proyectan en ser líderes en sus mercados sociales, culturales y económicos. 
     </p>    
     <hr style="background-color:#FFD740; height:1px;border: none;width: 100%;">
-    <h2 class="center-align">Visión</h2>
-    <p>
+    <h2>Visión</h2>
+    <p id="p2">
     Ser una empresa que vaya a la vanguardia de la tecnología, que contribuya en el crecimiento de los  clientes que planean una proyección de progreso por medio del mercadeo en red, optimizando sus procesos para faciliar cómo se muestrán al mundo.</p>
   </section>
-  <section id="escibe" style="background: #FFD740;width: 100%; padding: 20px; font-size: 40px; margin-top: -130px;">
-      <p style="color:teal;text-align: center;">"Contactanos, somos la mejor alternativa en Dasarrollo."<span>&#160</span></p>
+  <section id="escibe" style="background: #FFD740;width: 100%; padding: 20px; font-size: 30px; margin-top: -130px;">
+      <p style="color:teal;text-align: center;">"Contactanos, somos la mejor alternativa en Dasarrollo de sisitemas y aplicaciones Web."<span>&#160</span></p>
     </section>
 <h4 class="center-align" style="color: teal">Nuestro Servicios</h4>
  <div class="slider" style="display:block">

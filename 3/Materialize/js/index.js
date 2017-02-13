@@ -91,6 +91,11 @@ $(document).ready(function(){
 	}
 	})
 
-	//////Esliders 
+	//////Efectos 
+
+	$('#uno p1').hide();
+
+	$('#uno p1').show("slow");
+
 	
 });

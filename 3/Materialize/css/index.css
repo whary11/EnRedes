@@ -20,12 +20,13 @@ nav{
 	background-image: url(../img/home-office-336373_1280.jpg);
 	background-repeat:repeat;
 	margin-top:-40px; 
-	color:black;
+	color:white;
 	font-style: italic;
 	width: 100%;
 }
 #uno h1, h2{
 	color: teal;
+	text-align: right;
 }
 #uno p{
 	padding: 10px;
@@ -160,6 +161,7 @@ nav ul li a{
 	 #escibe{
 	 	display: none;
 	 }
+	 
 }
 
 #escibe p{
@@ -182,6 +184,7 @@ nav ul li a{
 	to{
 		width: 0%;
 	}
+
 }
 
 
