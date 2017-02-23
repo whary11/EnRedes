@@ -1,16 +1,15 @@
-
-<?php
-
-// sleep(1);
-require_once("clases/conn.php");
-  if (isset($_POST["usuario"])) {
+<?php 
+	require_once('../clases/conn.php');
+	// sleep(100);
+	if (isset($_POST["usuario"])) {
     $usuario = $_POST["usuario"];
     $clave = $_POST["clave"];
     $db = new connDb();
-if($db::buscaUsuario("registro",$usuario,$clave)){
+	if($db::buscaUsuario("login",$usuario,$clave)){
+		$id;
       session_start();
       $_SESSION["usuario"] = $usuario;
-      print "1234567890";
+      print "123";
     }else{
       print "1234";
     }

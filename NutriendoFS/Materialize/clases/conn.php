@@ -4,10 +4,10 @@
 
 */
 class connDb{
-	private $host = "localhost";
-	private $usuario = "root";
-	private $clave = "";
-	private $db = "inicioenredes";
+	private $host = "209.133.208.250";
+	private $usuario = "nutriend_luisfer";
+	private $clave = "1077444356";
+	private $db = "nutriend_nutriendo";
 	private $conn;
 // Crear la conexión desde la función constructora
 	public function __construct(){
@@ -45,7 +45,7 @@ class connDb{
 // función para buscar cualquier usuario siguiendo los parámetros exigidos
 	public static function buscaUsuario($tabla,$usuario, $clave){
 				$db = new connDb();
-				$data = $db->query("SELECT * FROM $tabla WHERE correo='".$usuario."' AND contrasena1='".$clave."'");
+				$data = $db->query("SELECT * FROM $tabla WHERE usuario='$usuario' AND clave='$clave'");
 				$db->close();
 				unset($db);
 				return isset($data[0]);

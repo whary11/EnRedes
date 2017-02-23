@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Nutriendo F.S</title>
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
@@ -12,7 +13,6 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<!-- <div class="navbar-fixed"> -->
 	<nav class="pink lighten-2">
     	<div class="nav-wrapper">
       	<a href="#!" class="brand-logo right"><h1>Nutriendo F.S.</h1></a>
@@ -21,7 +21,7 @@
           <li><a href="#">Servicios<i class="material-icons right">work</i></a></li>
 	        <li><a href="#">Productos<i class="material-icons right">credit_card</i></a></li>
 	        <li><a href="#contaco">Contactenos<i class="material-icons right">person_pin</i></a></li>
-	        <li><a href="#admin">Adminstrador <i class="material-icons right">mode_edit</i></a></li>
+	        <li><a href="#admin"><i class="material-icons right">settings_applications</i></a></li>
       	</ul>
       <div>
       <ul class="side-nav" id="mobile-demo">
@@ -29,7 +29,7 @@
         <li><a href="#">Servicios<i class="material-icons right">work</i></a></li>
         <li><a href="#">Productos<i class="material-icons right">credit_card</i></a></li>
         <li><a href="#contaco">Contactenos<i class="material-icons right">person_pin</i></a></li>
-        <!-- <li><a href="#admin">Adminstrador <i class="material-icons right">mode_edit</i></a></li> -->
+        <li><a href="#admin"><i class="material-icons right">settings_applications</i></a></li>
       </ul>
       </div>
       </div>
@@ -85,34 +85,49 @@
 <div class="container" id="vision">
 <div class="col l12 s12">
 <h2 class="center-align">Visión</h2>
-<p class="flow-text">Nutriendo F.S. busca ser una empresa líder en atención nutricional para todos los grupos poblacionales, brindando una atención oportuna en promoción y la prevención de dificultades que desencadena los hábitos inadecuados en la alimentación.
-Promover herramientas que faciliten una alimentación saludable a personas e instituciones interesadas en mejorar su calidad de vida, mediante un servicio personalizado en educación, consultoría y asesoría en nutrición.</p>
+<p class="flow-text">
+  <?php
+  require_once("clases/conn.php"); 
+  $db = new connDb();
+  $q="SELECT * FROM contenidos";
+  $data = $db->leeTabla($q); 
+  for ($i=0; $i <count($data); $i++) {
+    print(utf8_encode($data[$i]->vision));
+  }
+?>
+</p>
 </div>
 </div>
 <!-- Mapa Google-->
 <div id="mapa" class="z-depth-5">
 <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1991.411871790154!2d-76.54164007171062!3d3.3931671822178284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a15af486aad1%3A0xafea3a3157d9b621!2sCl.+11a+%2370-35%2C+Cali%2C+Valle+del+Cauca%2C+Colombia!5e0!3m2!1ses-419!2s!4v1483235042298" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
 </div>
+
 		<!-- Administrador -->
 
 <div id="admin" class="modal">
 
     <div class="modal-content">
-		<form action="" class="" method="post">
+		<form action="" id="registro">
 			<h4 class="center-align">Iniciar Sesión</h4>
-		 			<div class="input-field col s6">
-		 				<input type="text" name="usuario" id="usuario" class="validate">
-		 				<label for="usuario">Usuario</label>
-		 			</div>
-		 			<div class="input-field col s6">
-		 				<input type="password" name="clave" id="apellido" class="validate">
-		 				<label for="clave">Contraseña</label>
-		 			</div>
-		 			<div class="row ">
-		 				<!-- <input type="submit" name="enviar" value="Iniciar Sesión"> -->
-		 				<button class="btn pink lighten-2" name="ingreso">Iniciar Sesión</button>
-		 			</div>
-		 </form>
+      <div id="noti">
+          <i class="material-icons"></i>
+          <span ></span>
+      <div id="cargando" style="width: 100%;margin: auto;text-align: center;"></div>
+      </div>
+          <div class="input-field col s6">
+            <input type="text" name="usuario" id="usuario" class="validate">
+            <label for="usuario">Usuario</label>
+          </div>
+          <div class="input-field col s6">
+            <input type="password" name="clave" id="clave" class="validate">
+            <label for="clave">Contraseña</label>
+          </div>
+          <div class="row ">
+            <!-- <input type="submit" name="enviar" value="Iniciar Sesión"> -->
+            <button class="btn pink lighten-2" name="ingreso">Iniciar Sesión</button>
+          </div>
+     </form>
  </div>
 </div>
   
@@ -155,11 +170,9 @@ Promover herramientas que faciliten una alimentación saludable a personas e ins
 </div>
 <?php 
   require_once("clases/conn.php");
-
   $db = new connDb();
   $q = "";
   $data = $db->leeTabla($q)
-
  ?>
 <!-- Footer -->
 <footer class="page-footer pink lighten-2" id="footer">
@@ -167,7 +180,20 @@ Promover herramientas que faciliten una alimentación saludable a personas e ins
 			<div class="row">
 				<div class="col l12 s12">
 	                <h5 class="white-text">Contactos</h5>
-	                <p class="grey-text text-lighten-4">Nutriendo F.S. - Dirección: Calle 11 a # 70 - 35 - Cali - Colombia</p>
+	                <p class="grey-text text-lighten-4">
+                    <?php 
+                      $db = new connDb();
+                        $q="SELECT * FROM contenidos";
+                        $data = $db->leeTabla($q); 
+                        for ($i=0; $i <count($data); $i++) {
+                          print(utf8_encode($data[$i]->direccion));
+                        }
+                      $db->close();
+
+                     ?>
+
+
+                  </p>
               	</div>	
 			</div>
 		</div>
