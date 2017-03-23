@@ -15,13 +15,13 @@
 			              <img src="img/IMG_20161030_175743.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
 			            </div>
 			            <div class="col s10">
-			            <strong align="center"><p>Datos de los usuarios</p></strong>
+			            <strong style="text-aling:center;font-size:40px;color:teal;"><p>Datos de los usuarios</p></strong>
 			            <span class="black-text">
-			                Nombre completos: '.$data[$i]->nombre." ".$data[$i]->apellido.'
+			                Nombre completos: <span style="color:teal">'.$data[$i]->nombre." ".$data[$i]->apellido.'</span>
 			              </span>
 			              <br>
 			              <span class="black-text">
-			                Correo electrónico: '.$data[$i]->correo.'
+			                Correo electrónico: <a href"#">'.$data[$i]->correo.'</a>
 			              </span>
 			              <br>
 			              <span class="black-text">
